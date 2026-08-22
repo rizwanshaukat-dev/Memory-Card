@@ -9,7 +9,7 @@ function App() {
     async function getCharacters() {
       const response = await fetch("https://rickandmortyapi.com/api/character");
       const data = await response.json();
-      setCharacters(data.results.slice(0, 8));
+      setCharacters(data.results.slice(0, 10));
     }
     getCharacters()
   }, []);
@@ -17,12 +17,22 @@ function App() {
     if(!clickedIds.includes(event.currentTarget.dataset.id)){
       setClickedIds([...clickedIds,event.currentTarget.dataset.id]);
       setScore(score=>score +1);
+      shuffleCards();
     }
     else{
+      shuffleCards(characters)
       setBestScore(score>bestScore?score:bestScore)
       setScore(0);
       setClickedIds([]);
     }
+  }
+  function shuffleCards(){
+    const shuffledCharacters=[...characters];
+    for (let i = shuffledCharacters.length-1; i > 0; i--) {
+      const j=Math.floor(Math.random()*(i+1));
+      [shuffledCharacters[i],shuffledCharacters[j]]=[shuffledCharacters[j],shuffledCharacters[i]];
+    }
+    setCharacters(shuffledCharacters);
   }
   return (
     <div className="card-container">
