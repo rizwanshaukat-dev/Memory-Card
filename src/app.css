@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Handjet:wght,ELSH@100..900,2&family=Tagesschrift&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handjet:wght,ELSH@100..900,2&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.app-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+body {
+    background-color: #F5F7F8;
+}
+
+.header {
+    min-height: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    background-color: #495E57;
+    color: azure;
+}
+
+.game-title {
+    font-size: 2.3rem;
+    font-family: "Tagesschrift", sans-serif;
+}
+
+.score-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.score-wrapper h3 {
+    font-size: 1.4rem;
+    font-family: "Tagesschrift", sans-serif;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    place-items: center;
+    padding: 1rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 280px;
+    height: auto;
+    padding: 1rem;
+    background-color: #45474B;
+    gap: 1.5rem;
+    border-radius: 8px;
+    transition: box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.card img {
+    width: 250px;
+    display: block;
+    border-radius: 8px;
+}
+
+.name {
+    font-size: 1.5rem;
+    font-family: "Handjet", sans-serif;
+    color: #F4CE14;
+}
+
+.card:hover {
+    box-shadow: rgba(50, 93, 52, 0.568) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.card:active {
+    background-color: azure;
+}
+
+@media (max-width:500px) {
+    .game-title {
+        font-size: 2rem;
+    }
+
+    .score-wrapper h3 {
+        font-size: 1.2rem;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1.5rem 0;
+    }
+}
